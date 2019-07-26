@@ -1,0 +1,6 @@
+playsound
+opencv-python
+dlib
+numpy
+imutils
+speech_recognition

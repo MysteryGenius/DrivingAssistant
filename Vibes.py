@@ -5,6 +5,7 @@ import numpy as np
 from imutils import face_utils
 import random
 import time
+from playsound import playsound
 
 import speech_recognition as sr
 
@@ -57,6 +58,7 @@ def eye_aspect_ratio(eye):
     
 thresh = 0.25
 frame_check = 20
+face_frame_check = 10
 detect = dlib.get_frontal_face_detector()
 predict = dlib.shape_predictor(face_landmark_path)# crux of the code
 
@@ -147,10 +149,10 @@ def main():
                 cv2.putText(frame, "Z: " + "{:7.2f}".format(euler_angle[2, 0]), (20, 140), cv2.FONT_HERSHEY_SIMPLEX,
                             0.75, (0, 0, 0), thickness=2)
 
-                if (euler_angle[0, 0] > 7):
+                if (euler_angle[0, 0] > 6):
                     flag_face_down += 1
                     print (flag_face_down)
-                    if flag_face_down >= frame_check:
+                    if flag_face_down >= face_frame_check:
                         cv2.putText(frame, "**************************ALERT!*************************", (0, 30),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                         cv2.putText(frame, "**************************ALERT!*************************", (0, 460),
@@ -240,3 +242,6 @@ if __name__ == "__main__":
             break 
         if toCheck == "start car":
             main()
+
+
+
