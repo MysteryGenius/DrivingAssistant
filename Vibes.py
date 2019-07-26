@@ -123,6 +123,7 @@ def main():
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                     cv2.putText(frame, "**************************ALERT!*************************", (0, 460),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    playsound("./_audio/pay_attention.wav")
                     # print ("Drowsy")
             else:
                 flag_eye = 0
@@ -157,6 +158,8 @@ def main():
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                         cv2.putText(frame, "**************************ALERT!*************************", (0, 460),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+
+                        playsound("./_audio/pay_attention.wav")
                 else:
                     flag_face_down = 0
 
